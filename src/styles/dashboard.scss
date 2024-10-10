@@ -1,0 +1,154 @@
+/* Light Theme Scrollbar for .dashboard */
+.dashboard::-webkit-scrollbar {
+    width: 12px;
+}
+
+.dashboard::-webkit-scrollbar-track {
+    background-color: #f1f1f1; // Light theme track
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+    background-color: #888; // Light theme thumb
+    border-radius: 10px;
+}
+
+/* Dark Theme Scrollbar for .dashboard */
+.dark .dashboard::-webkit-scrollbar {
+    width: 12px;
+}
+
+.dark .dashboard::-webkit-scrollbar-track {
+    background-color: rgb(6, 0, 31); // Dark theme track
+}
+
+.dark .dashboard::-webkit-scrollbar-thumb {
+    background-color: rgb(4, 20, 58); // Dark theme thumb
+    border-radius: 10px;
+}
+
+.dashboard {
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .bar {
+        @include flex(row, unset, unset, unset);
+        height: 4rem;
+        padding: 0 1rem;
+        border-bottom: 1px solid gray;
+        display: flex;
+        align-items: center;
+
+        >input {
+            margin-right: auto;
+            @include inputStyles(100%, 1rem 0);
+        }
+
+        svg {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+    }
+
+    .widgetContainer {
+        @include flex(row, space-between, stretch, 2rem);
+        padding: 2rem 2rem 2rem 0;
+    }
+
+    .widgetcircle {
+        position: relative;
+        @include square(5rem);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background-color: aquamarine;
+
+        &::before {
+            content: "";
+            position: absolute;
+            @include square(4rem);
+            background-color: #f5f5f5; // Light mode color
+            @apply dark:bg-[#020817]; // Dark mode color using Tailwind's dark mode class
+            border-radius: 100%;
+        }
+
+        span {
+            position: relative;
+
+        }
+    }
+
+    .revenueChart {
+        padding: 1rem 3rem;
+        width: 100%;
+
+        @media screen and (max-width: 950px){
+            padding: 0.2rem 0.6rem !important;
+        }
+
+        >h2 {
+            @include heading;
+            margin: 1rem 0 2rem 0.25rem;
+            text-align: center;
+        }
+    }
+
+    .dashboardCategories {
+        width: 100%;
+        @media screen and (min-width: 950px) {
+            max-width: 16rem;
+        }
+        @include flex(column, center, unset, 0);
+        padding-bottom: 2rem;
+        >h2 {
+            @include heading;
+            margin: 1.5rem 0 2rem 0;
+            text-align: center;
+        }
+        >div {
+            overflow-y: auto;
+            padding-left: 0.5rem;
+        }
+    }
+
+    .transactionContainer {
+        display: flex;
+        gap: 2rem;
+        padding: 0 2rem 2rem 0;
+        @media screen and (min-width: 950px){
+            height: 29.5rem;
+        }
+
+        >div {
+            background-color: #f5f5f5; // Light mode color
+            @apply dark:bg-[#01081a75]; // Dark mode color using Tailwind's dark mode class
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.132);
+            color: white !important;
+            border-radius: 10px;
+        }
+
+        .genderChart {
+            background-color: #f5f5f5; // Light mode color
+            @apply dark:bg-customdark; // Dark mode color using Tailwind's dark mode class
+            @media screen and (max-width: 950px){
+                width: 100% !important;
+            }
+            color: black;
+            @apply dark:text-white;
+            max-width: 20rem;
+            padding: 1rem;
+            position: relative;
+            >h2 {
+                text-align: center;
+                margin: 1.5rem 0 2rem 0;
+                @include heading;
+                @apply dark:text-white;
+                color: #020817
+            }
+            >p {
+                @include posCenter;
+                font-size: 3rem;
+                color: rgba(0, 0, 0, 0.634);
+            }
+        }
+    }
+}

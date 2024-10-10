@@ -1,0 +1,30 @@
+
+.css-1tti7u1-MuiTableCell-root {
+    @apply dark:text-white;
+    color: #020817;
+}
+
+.css-10ukr6t-MuiTableCell-root {
+    @apply dark:text-white;
+    color: #020817;
+}
+
+.MuiTableRow-head,
+.MuiTableCell-head {
+    @apply dark:bg-customdark; // Dark mode color using Tailwind's dark mode class
+    @apply dark:text-white;
+    color: #020817;
+    background-color: white;
+}
+
+.MuiTablePagination-toolbar {
+    @apply dark:text-white;
+    @apply dark:bg-customdark; // Dark mode color using Tailwind's dark mode class
+    background-color: #f5f5f5;
+}
+
+.css-rm9hue-MuiSvgIcon-root-MuiSelect-icon {
+    color: #020817;
+    @apply dark:text-white;
+    @apply dark:bg-customdark; // Dark mode color using Tailwind's dark mode class
+}
